@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Hunter</title>
+
+    <!-- daisyUI links -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header></header>
+    <main class="md:container md:mx-auto 2xl:px-0 xl:px-0 lg:px-5 md:px-5 px-5 font-poppins">
+        <!-- search field -->
+        <section>
+            <div>
+              <h3 class="xl:text-5xl lg:text-4xl md:text-4xl text-3xl text-center mt-20 mb-5">Search your phone</h3>
+            </div>
+            <div class="p-5 border rounded-xl text-center">
+                <input id="search-input" type="text" placeholder="Search your phone" class="input input-bordered 2xl:w-2/4 xl:w-2/4 lg:w-3/4 md:w-2/4 w-8/12" />
+                <button onclick="searchPhones()" class="btn btn-primary normal-case px-5">Search</button>
+            </div>
+        </section>
+
+        <!-- search results -->
+        <section class="mt-10">
+            <div id="phone-container" class="grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-5">
+            </div>
+        </section>
+
+        <div id="show-all-btn-field" class="my-7 text-center hidden">
+            <button onclick="showAllData()" class="btn btn-primary normal-case px-5">Show All Phones</button>
+        </div>
+    </main>
+    <script src="./js/script.js"></script>
+</body>
+</html>
