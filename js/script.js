@@ -66,14 +66,15 @@ const handleShowDetails = async(id)=>{
 const showDetails = (phone)=>{
     console.log(phone)
     my_modal_5.showModal()
-    // finding elements
     document.getElementById('image').src = phone.image;
-    document.getElementById('phone_name').innerText = phone.name;
-    document.getElementById('storage').innerText = phone.mainFeatures.storage;
-    document.getElementById('displaySize').innerText = phone.mainFeatures.displaySize  ;
-    document.getElementById('chipset').innerText = phone.mainFeatures.chipSet;
-    document.getElementById('memory').innerText = phone.mainFeatures.memory;
-    document.getElementById('slug').innerText = phone.slug;
-    document.getElementById('release_date'). innerText = phone.mainFeatures.releaseDate;
-    document.getElementById('brand').innerText = phone.brand;
+    document.getElementById('details_container').innerHTML = `
+    <h2 id="phone_name" class="text-center text-neutral-700 text-3xl font-bold font-['Poppins']">${phone.name}</h2>
+    <h3><span class="text-neutral-700 text-xl font-semibold font-['Poppins']">Storage : </span><span id="storage" class="text-neutral-500 text-xl font-normal font-['Poppins']"> ${phone.mainFeatures.storage} </span></h3>
+    <h3><span class="text-neutral-700 text-xl font-semibold font-['Poppins']">Display Size  : </span><span id="displaySize" class="text-neutral-500 text-xl font-normal font-['Poppins']"> ${phone.mainFeatures.displaySize}  </span></h3>
+    <h3><span class="text-neutral-700 text-xl font-semibold font-['Poppins']">Chipset : </span><span id="chipset" class="text-neutral-500 text-xl font-normal font-['Poppins']"> ${phone.mainFeatures.chipSet} </span></h3>
+    <h3><span class="text-neutral-700 text-xl font-semibold font-['Poppins']">Memory : </span><span id="memory" class="text-neutral-500 text-xl font-normal font-['Poppins']"> ${phone.mainFeatures.memory} </span></h3>
+    <h3><span class="text-neutral-700 text-xl font-semibold font-['Poppins']">Slug : </span><span id="slug" class="text-neutral-500 text-xl font-normal font-['Poppins']"> ${phone.slug} </span></h3>
+    <h3><span class="text-neutral-700 text-xl font-semibold font-['Poppins']">Release date  : </span><span id="release_date" class="text-neutral-500 text-xl font-normal font-['Poppins']"> ${phone.mainFeatures.releaseDate} </span></h3>
+    <h3><span class="text-neutral-700 text-xl font-semibold font-['Poppins']">Brand : </span><span id="brand" class="text-neutral-500 text-xl font-normal font-['Poppins']"> ${phone.brand} </span></h3>
+    `
  }
