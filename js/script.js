@@ -12,6 +12,15 @@ const displayData = (phones, isShowAll)=>{
     }else{
         document.getElementById('show_all_btn_container').classList.add('hidden');
     }
+
+    // display no phones found
+const noPhone = document.getElementById('no-found-message');
+if(phones.length === 0){
+    noPhone.classList.remove('hidden');
+}
+else{
+    noPhone.classList.add('hidden');
+}
     
         if(!isShowAll){
             phones = phones.slice(0, 12);
@@ -40,6 +49,7 @@ const displayData = (phones, isShowAll)=>{
     document.getElementById('loading_btn').classList.add('hidden');
 }
 
+
 // handle search
 const handleSearch = (isShowAll)=>{
         document.getElementById('loading_btn').classList.remove('hidden');
@@ -51,6 +61,7 @@ const handleSearch = (isShowAll)=>{
 // handle show all btn
 const handleShowAll = ()=>{
     handleSearch(true);
+    document.getElementById('show_all_btn_container').classList.add('hidden')
 }
 
 
@@ -68,13 +79,14 @@ const showDetails = (phone)=>{
     my_modal_5.showModal()
     document.getElementById('image').src = phone.image;
     document.getElementById('details_container').innerHTML = `
-    <h2 id="phone_name" class="text-center text-neutral-700 text-3xl font-bold font-['Poppins']">${phone.name}</h2>
-    <h3><span class="text-neutral-700 text-xl font-semibold font-['Poppins']">Storage : </span><span id="storage" class="text-neutral-500 text-xl font-normal font-['Poppins']"> ${phone.mainFeatures.storage} </span></h3>
+    <h2 class="text-center text-neutral-700 text-3xl font-bold font-['Poppins']">${phone.name}</h2>
+    <h3><span class="text-neutral-700 text-xl font-semibold font-['Poppins']">Storage : </span><span class="text-neutral-500 text-xl font-normal font-['Poppins']"> ${phone.mainFeatures.storage} </span></h3>
     <h3><span class="text-neutral-700 text-xl font-semibold font-['Poppins']">Display Size  : </span><span id="displaySize" class="text-neutral-500 text-xl font-normal font-['Poppins']"> ${phone.mainFeatures.displaySize}  </span></h3>
-    <h3><span class="text-neutral-700 text-xl font-semibold font-['Poppins']">Chipset : </span><span id="chipset" class="text-neutral-500 text-xl font-normal font-['Poppins']"> ${phone.mainFeatures.chipSet} </span></h3>
-    <h3><span class="text-neutral-700 text-xl font-semibold font-['Poppins']">Memory : </span><span id="memory" class="text-neutral-500 text-xl font-normal font-['Poppins']"> ${phone.mainFeatures.memory} </span></h3>
-    <h3><span class="text-neutral-700 text-xl font-semibold font-['Poppins']">Slug : </span><span id="slug" class="text-neutral-500 text-xl font-normal font-['Poppins']"> ${phone.slug} </span></h3>
+    <h3><span class="text-neutral-700 text-xl font-semibold font-['Poppins']">Chipset : </span><span " class="text-neutral-500 text-xl font-normal font-['Poppins']"> ${phone.mainFeatures.chipSet} </span></h3>
+    <h3><span class="text-neutral-700 text-xl font-semibold font-['Poppins']">Memory : </span><span class="text-neutral-500 text-xl font-normal font-['Poppins']"> ${phone.mainFeatures.memory} </span></h3>
+    <h3><span class="text-neutral-700 text-xl font-semibold font-['Poppins']">Slug : </span><span class="text-neutral-500 text-xl font-normal font-['Poppins']"> ${phone.slug} </span></h3>
     <h3><span class="text-neutral-700 text-xl font-semibold font-['Poppins']">Release date  : </span><span id="release_date" class="text-neutral-500 text-xl font-normal font-['Poppins']"> ${phone.mainFeatures.releaseDate} </span></h3>
-    <h3><span class="text-neutral-700 text-xl font-semibold font-['Poppins']">Brand : </span><span id="brand" class="text-neutral-500 text-xl font-normal font-['Poppins']"> ${phone.brand} </span></h3>
+    <h3><span class="text-neutral-700 text-xl font-semibold font-['Poppins']">Brand : </span><span class="text-neutral-500 text-xl font-normal font-['Poppins']"> ${phone.brand} </span></h3>
+    <h3><span class="text-neutral-700 text-xl font-semibold font-['Poppins']">GPS : </span><span  class="text-neutral-500 text-xl font-normal font-['Poppins']"> ${phone?.others?.GPS || 'No GPS avilable'} </span></h3>
     `
  }
