@@ -12,18 +12,6 @@
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-  <!-- Header Section -->
-  <header>
-    <nav class="flex justify-between px-20 py-10">
-      <div>
-        <h2 class="text-neutral-700 text-[25px] font-bold font-['Poppins'] leading-[30px]">Hot Gadgets</h2>
-      </div>
-      <div>
-        <button class="btn btn-active btn-primary bg-blue-600 text-[20px]">Sign in</button>
-
-      </div>
-    </nav>
-  </header>
   <!-- Banner Section -->
   <div class="flex justify-center p-4">
     <div>
@@ -45,7 +33,7 @@
 
     <section class="my-20">
       
-<form id="search_phone" class="flex items-center max-w-lg mx-auto">   
+<div id="search_phone" class="flex items-center max-w-lg mx-auto">   
   <label for="voice-search" class="sr-only">Search</label>
   <div class="relative w-full">
       <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -60,12 +48,12 @@
           </svg>
       </button>
   </div>
-  <button type="submit" class="inline-flex items-center py-2.5 px-3 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+  <button onclick="handleSearch();" type="submit" class="inline-flex items-center py-2.5 px-3 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
       <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
       </svg>Search
   </button>
-</form>
+</div>
 
     </section>
 
@@ -86,10 +74,38 @@
       <div id="card_container" class="grid sm:grid-cols-4 gap-4">
 
       </div>
-      <div id="show_all_btn_container" class="hidden">
-        <button id="show_all_btn" class="btn btn-active btn-primary bg-blue-600 text-[20px]">Show all</button>
+      <div id="show_all_btn_container" class="flex justify-center my-8 hidden">
+        <button onclick="handleShowAll()" class="btn btn-active btn-primary bg-blue-600 text-[20px]">Show all</button>
       </div>
     </section>
+
+    <!-- modal -->
+    <!-- You can open the modal using ID.showModal() method -->
+<!-- Open the modal using ID.showModal() method -->
+<dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <div class="flex justify-center items-center">
+      <img id="image" src="" alt="">
+    </div>
+    <div class=" mt-6 space-y-6">
+      <h2 id="phone_name" class="text-center text-neutral-700 text-3xl font-bold font-['Poppins']"></h2>
+    <h3><span class="text-neutral-700 text-xl font-semibold font-['Poppins']">Storage : </span><span id="storage" class="text-neutral-500 text-xl font-normal font-['Poppins']"> </span></h3>
+    <h3><span class="text-neutral-700 text-xl font-semibold font-['Poppins']">Display Size  : </span><span id="displaySize" class="text-neutral-500 text-xl font-normal font-['Poppins']"> </span></h3>
+    <h3><span class="text-neutral-700 text-xl font-semibold font-['Poppins']">Chipset : </span><span id="chipset" class="text-neutral-500 text-xl font-normal font-['Poppins']"> </span></h3>
+    <h3><span class="text-neutral-700 text-xl font-semibold font-['Poppins']">Memory : </span><span id="memory" class="text-neutral-500 text-xl font-normal font-['Poppins']"> </span></h3>
+    <h3><span class="text-neutral-700 text-xl font-semibold font-['Poppins']">Slug : </span><span id="slug" class="text-neutral-500 text-xl font-normal font-['Poppins']"> </span></h3>
+    <h3><span class="text-neutral-700 text-xl font-semibold font-['Poppins']">Release date  : </span><span id="release_date" class="text-neutral-500 text-xl font-normal font-['Poppins']"> </span></h3>
+    <h3><span class="text-neutral-700 text-xl font-semibold font-['Poppins']">Brand : </span><span id="brand" class="text-neutral-500 text-xl font-normal font-['Poppins']"> </span></h3>
+    </div>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn bg-red-500 text-white">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
   </main>
 
   <script src="js/script.js"></script>
